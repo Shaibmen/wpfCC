@@ -7,15 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Background="#FF53A96C">
-        <Button x:Name="_1" Content="" HorizontalAlignment="Left" Margin="291,101,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B"/>
-        <Button x:Name="_2" Content="" HorizontalAlignment="Left" Margin="359,101,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B"/>
-        <Button x:Name="_3" Content="" HorizontalAlignment="Left" Margin="427,101,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B"/>
-        <Button x:Name="_4" Content="" HorizontalAlignment="Left" Margin="291,172,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B"/>
-        <Button x:Name="_5" Content="" HorizontalAlignment="Left" Margin="359,172,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B"/>
-        <Button x:Name="_6" Content="" HorizontalAlignment="Left" Margin="427,172,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B"/>
-        <Button x:Name="_7" Content="" HorizontalAlignment="Left" Margin="291,243,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B"/>
-        <Button x:Name="_8" Content="" HorizontalAlignment="Left" Margin="359,243,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click " Background="#FFF9FF93" BorderBrush="#FFB8E42B"/>
-        <Button x:Name="_9" Content="" HorizontalAlignment="Left" Margin="427,243,0,0" VerticalAlignment="Top" Height="66" Width="63" RenderTransformOrigin="0.538,2.328" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B"/>
+        <Button x:Name="_1" Content="" HorizontalAlignment="Left" Margin="291,101,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B" IsEnabled="False"/>
+        <Button x:Name="_2" Content="" HorizontalAlignment="Left" Margin="359,101,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B" IsEnabled="False"/>
+        <Button x:Name="_3" Content="" HorizontalAlignment="Left" Margin="427,101,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B" IsEnabled="False"/>
+        <Button x:Name="_4" Content="" HorizontalAlignment="Left" Margin="291,172,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B" IsEnabled="False"/>
+        <Button x:Name="_5" Content="" HorizontalAlignment="Left" Margin="359,172,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B" IsEnabled="False"/>
+        <Button x:Name="_6" Content="" HorizontalAlignment="Left" Margin="427,172,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B" IsEnabled="False"/>
+        <Button x:Name="_7" Content="" HorizontalAlignment="Left" Margin="291,243,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B" IsEnabled="False"/>
+        <Button x:Name="_8" Content="" HorizontalAlignment="Left" Margin="359,243,0,0" VerticalAlignment="Top" Height="66" Width="63" Click="_1_Click " Background="#FFF9FF93" BorderBrush="#FFB8E42B" IsEnabled="False"/>
+        <Button x:Name="_9" Content="" HorizontalAlignment="Left" Margin="427,243,0,0" VerticalAlignment="Top" Height="66" Width="63" RenderTransformOrigin="0.538,2.328" Click="_1_Click" Background="#FFF9FF93" BorderBrush="#FFB8E42B" IsEnabled="False"/>
+        <Button Content="Старт" Margin="155,243,555,125" Click="Start_Click"/>
+        <Button Content="Смена игрока" HorizontalAlignment="Left" Margin="155,172,0,0" VerticalAlignment="Top" Height="66" Width="90" Click="Button_Click"/>
+        <TextBox Name="_TextBox"  HorizontalAlignment="Left" Margin="359,74,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
