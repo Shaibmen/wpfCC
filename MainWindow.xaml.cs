@@ -15,13 +15,13 @@ using System.Windows.Shapes;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+
     public partial class MainWindow : Window
     {
         Button[] button;
-        bool storona = true;
+        bool storona = false;
+        bool gameEnded = false;
+        int AvailableCells = 9;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,62 +31,119 @@ namespace WpfApp1
 
         private void _1_Click(object sender, RoutedEventArgs e)
         {
-
-
-            Itog();
-            Random random = new Random();
-            int random_number = random.Next(0, 9);
-
-            (sender as Button).IsEnabled = false;
-            button[random_number].IsEnabled = false;
-
-            while (button[random_number].IsEnabled == false)
+            if (gameEnded == true)
             {
-                random_number = random.Next(0, 9);
+                return;
             }
+
+            Button clickedButton = (Button)sender;
 
 
             if (storona == true)
             {
-                (sender as Button).Content = 'x';
-                if (_1.IsEnabled == true | _2.IsEnabled == true | _3.IsEnabled == true | _4.IsEnabled == true | _5.IsEnabled == true | _6.IsEnabled == true | _7.IsEnabled == true | _8.IsEnabled == true | _9.IsEnabled == true)
-                {
-                    button[random_number].Content = 'o';
-                }
+                clickedButton.Content = 'x';
+                clickedButton.IsEnabled = false;
             }
             else
             {
-                (sender as Button).Content = 'o';
-                button[random_number].Content = 'x';
+                clickedButton.Content = 'o';
+                clickedButton.IsEnabled = false;
             }
 
+            AvailableCells--;
+            Itog();
 
+            Random random = new Random();
+            int random_number = random.Next(0, 9);
 
+            if (gameEnded == false)
+            {
+                while (button[random_number].IsEnabled == false || button[random_number] == clickedButton)
+                {
+                    random_number = random.Next(0, 9);
+                }
 
+                if (storona == true)
+                {
+                    button[random_number].Content = 'o';
+                    button[random_number].IsEnabled = false;
+                }
+                else
+                {
+                    button[random_number].Content = 'x';
+                    button[random_number].IsEnabled = false;
+                }
 
-
-
+                AvailableCells--;
+                Itog();
+            } 
         }
+
+
 
         void Itog()
-        {
-            _1.IsEnabled = false;
+        { 
+
+
+            if (_1.Content.ToString() == _2.Content.ToString() && _2.Content.ToString() == _3.Content.ToString() && _1.Content.ToString() != " ")
+            {
+                LabelItog.Content = "Победа";
+                _2LabelItog.Content = "" + _1.Content.ToString();
+            }
+            else if (_4.Content.ToString() == _5.Content.ToString() && _5.Content.ToString() == _6.Content.ToString() && _4.Content.ToString() != " ")
+            {
+                LabelItog.Content = "Победа";
+                _2LabelItog.Content = "" + _4.Content.ToString();
+            }
+            else if (_7.Content.ToString() == _8.Content.ToString() && _8.Content.ToString() == _9.Content.ToString() && _7.Content.ToString() != " ")
+            {
+                LabelItog.Content = "Победа";
+                _2LabelItog.Content = "" + _7.Content.ToString();
+            }
+
+            else if (_1.Content.ToString() == _4.Content.ToString() && _4.Content.ToString() == _7.Content.ToString() && _1.Content.ToString() != " ")
+            {
+                LabelItog.Content = "Победа";
+                _2LabelItog.Content = "" + _1.Content.ToString();
+            }
+            else if (_2.Content.ToString() == _5.Content.ToString() && _5.Content.ToString() == _8.Content.ToString() && _2.Content.ToString() != " ")
+            {
+                LabelItog.Content = "Победа";
+                _2LabelItog.Content = "" + _2.Content.ToString();
+            }
+            else if (_3.Content.ToString() == _6.Content.ToString() && _6.Content.ToString() == _9.Content.ToString() && _3.Content.ToString() != " ")
+            {
+                LabelItog.Content = "Победа";
+                _2LabelItog.Content = "" + _3.Content.ToString();
+            }
+
+            else if (_1.Content.ToString() == _5.Content.ToString() && _5.Content.ToString() == _9.Content.ToString() && _1.Content.ToString() != " ")
+            {
+                LabelItog.Content = "Победа";
+                _2LabelItog.Content = "" + _1.Content.ToString();
+            }
+            else if (_3.Content.ToString() == _5.Content.ToString() && _5.Content.ToString() == _7.Content.ToString() && _3.Content.ToString() != " ")
+            {
+                LabelItog.Content = "Победа";
+                _2LabelItog.Content = "" + _3.Content.ToString();
+            }
+            else if (AvailableCells == 0)
+            {
+                LabelItog.Content = "Ничья";
+
+            }
+            if (LabelItog.Content.ToString() == "Победа" || LabelItog.Content.ToString() == "Ничья")
+            {
+                gameEnded = true;
+            }
         }
 
-        void Block()
-        {
-            _1.IsEnabled = false;
-            _2.IsEnabled = false;
-            _3.IsEnabled = false;
-            _4.IsEnabled = false;
-            _5.IsEnabled = false;
-            _6.IsEnabled = false;
-            _7.IsEnabled = false;
-            _8.IsEnabled = false;
-            _9.IsEnabled = false;
-        }
         void Restart()
         {
+            AvailableCells = 9;
+            LabelItog.Content = " ";
+            _2LabelItog.Content = " ";
+            gameEnded = false;
             _1.IsEnabled = true;
             _2.IsEnabled = true;
             _3.IsEnabled = true;
@@ -105,6 +162,7 @@ namespace WpfApp1
             _7.Content = " ";
             _8.Content = " ";
             _9.Content = " ";
+            Smena();
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)
@@ -112,7 +170,7 @@ namespace WpfApp1
             Restart();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        void Smena()
         {
             if (storona == true)
             {
@@ -122,6 +180,11 @@ namespace WpfApp1
             {
                 storona = true;
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Smena();
             Restart();
         }
     }
